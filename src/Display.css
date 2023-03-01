@@ -1,11 +1,54 @@
+:root{
+    --colour1: #886ce4;
+    --colour2: #ffc83d;
+}
+
 .card{
     margin: 1rem;
     padding: 1rem;
-    background: crimson;
+    background: white;
     border-radius: 0.5rem;
-
 }
 
+.card-link:hover{
+    color: rgb(241, 121, 225);
+}
+
+.date-container{
+    background: var(--colour2);
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.date-container:hover{
+    cursor: pointer;
+}
+
+.date-container-inner{
+    background: rgb(81, 166, 216);
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: absolute;
+    overflow: hidden;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.date{
+    padding: 0.5rem;
+}
+
+.date:hover{
+    background: gold;
+    cursor: pointer;
+}
+    
 a, a:visited{
     color: black;
+}
+
+li{
+    margin: 0;
+    list-style:none;
 }

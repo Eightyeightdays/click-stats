@@ -1,8 +1,21 @@
-.container{
+:root{
+  --colour1: #886ce4;
+}
+
+.card-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  background: gainsboro;
-  justify-content: center;
+  background: var(--colour1);
   padding: 2rem;
+  margin: auto;
+}
+
+.intro{
+  background: paleturquoise;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
