@@ -1,0 +1,11 @@
+.card{
+    margin: 1rem;
+    padding: 1rem;
+    background: crimson;
+    border-radius: 0.5rem;
+
+}
+
+a, a:visited{
+    color: black;
+}

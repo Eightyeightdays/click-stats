@@ -1,27 +1,28 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Display from './Display.js';
+import {NAMES, LINKS} from "./constants.js"
 
-function App() {
-  const [clicks1, setClicks1] = useState();
+export default function App() {
+  const [clicks, setClicks] = useState();
 
   useEffect(()=>{
-    // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT_1}`) // live link
-    fetch(`http://localhost:3000/${process.env.REACT_APP_ENDPOINT_1}`)               // local API
+    // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // live link
+    fetch(`http://localhost:4000/${process.env.REACT_APP_ENDPOINT}`)               // local API
     .then(data => data.json())
-    .then(json => setClicks1(json))
+    .then(json => {
+      setClicks(json);
+    })
     }, [] 
-
   )
 
   return (
-      <ul>
-        {clicks1 && clicks1.map((element, key)=>{
-          return <li key={key}>{element.dateCreated}</li>
-        })}
-      
-      </ul>
-  
-  );
-}
+    <div className='container'>
 
-export default App;
+      {clicks && clicks.map((el, index) =>{
+        return <Display link={LINKS[index]} name={NAMES[index]} length={el.length} arr={el} key={index}/>
+      })}
+
+    </div>
+  )
+}
