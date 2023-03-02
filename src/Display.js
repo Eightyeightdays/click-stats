@@ -1,8 +1,11 @@
 import "./Display.css";
 import { useState } from "react";
+import generateEmoji from "./generateEmoji.js";
 
 export default function Display({link, name, length, arr, src}){
     const [toggle, setToggle] = useState(false);
+    const emoji = generateEmoji(length);
+    
     function handleToggle(){
         setToggle(!toggle);
     }
@@ -15,7 +18,7 @@ export default function Display({link, name, length, arr, src}){
             <div className="image">
                 <img src={src} alt=""></img>
             </div>
-            <p>{length} {length===1? "Click": "Clicks"}</p>
+            <p>{length} {length===1? "Click": "Clicks"} {String.fromCodePoint(emoji)}</p>
             {length >=1 && 
             <div className="date-container" onClick={handleToggle}>
                 {!toggle? "Show dates" : "Hide dates"}
