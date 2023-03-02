@@ -1,15 +1,17 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Display from './Display.js';
 import {NAMES, LINKS} from "./constants.js";
+import Display from './Display.js';
 import generateEmoji from "./generateEmoji.js";
 import login from './login.js';
+import updateApplications from './updateApplications.js';
 
 
 export default function App() {
   const [clicks, setClicks] = useState();
   const [totalClicks, setTotalClicks] = useState(0);
   const [totalEmoji, setTotalEmoji] = useState();
+  const [toggle, setToggle] = useState(false);
   
   useEffect(()=>{
       // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // live link
@@ -46,9 +48,19 @@ export default function App() {
           <input type="email" name="email"/>
           <label htmlFor="password">Password</label>
           <input type="input" name="password"/>
-          <div className="login-button" onClick={login}>Login</div>
+          <div className="login-button" onClick={(e)=>login(setToggle, e)}>{toggle? "Logout" : "Login"}</div>
         </form>
       </div>
+
+      {toggle && 
+      <div className='input-container'>
+        <form encType="multipart/form-data" method="post" id="update">
+          <label htmlFor='applications'>Add new applications</label>
+          <input type="number" min="1" max="10" name="applications"/>
+          <div className='update-button' onClick={(e)=>updateApplications(e)}>Update</div>
+        </form>
+      </div>
+      }
     </div>
   )
 }

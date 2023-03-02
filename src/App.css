@@ -29,12 +29,12 @@ form{
   width: 10%;
 }
 
-.login-button{
+.login-button, .update-button{
   background: gold;
   padding: 1rem;
 }
 
-.login-button:hover{
+.login-button:hover, .update-button:hover{
   background: black;
   color: white;
   cursor: pointer;
