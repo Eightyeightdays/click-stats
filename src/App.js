@@ -12,6 +12,8 @@ export default function App() {
   const [totalClicks, setTotalClicks] = useState(0);
   const [totalEmoji, setTotalEmoji] = useState();
   const [toggle, setToggle] = useState(false);
+  const [count, setCount] = useState();
+  const [date, setDate] = useState();
   
   useEffect(()=>{
       // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // live link
@@ -54,11 +56,12 @@ export default function App() {
 
       {toggle && 
       <div className='input-container'>
-        <form encType="multipart/form-data" method="post" id="update">
+        <form encType="multipart/form-data" method="put" id="update">
           <label htmlFor='applications'>Add new applications</label>
           <input type="number" min="1" max="10" name="applications"/>
-          <div className='update-button' onClick={(e)=>updateApplications(e)}>Update</div>
+          <div className='update-button' onClick={(e)=>updateApplications(e, setCount, setDate)}>Update</div>
         </form>
+        {count && <p>{date}{count}</p>}
       </div>
       }
     </div>

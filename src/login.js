@@ -10,7 +10,6 @@ export default function login(setToggle, e){
         credentials: "include",
         headers: {
             "Accept": "application/json",
-            // "Authorization": Cookies.get("token"), // for update requests
             "Content-Type": "application/json"
         },
         body: JSON.stringify(user)
