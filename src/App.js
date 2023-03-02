@@ -14,9 +14,10 @@ export default function App() {
   const [toggle, setToggle] = useState(false);
   const [count, setCount] = useState();
   const [date, setDate] = useState();
+  const liveDate = "3rd March 2023";
   
   useEffect(()=>{
-      // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // live link
+      // fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // CHANGE TO LIVE LINK FOR DEPLOYMENT
       fetch(`http://localhost:4000/${process.env.REACT_APP_ENDPOINT}`)               // local API
       .then(data => data.json())
       .then(json => {
@@ -26,6 +27,14 @@ export default function App() {
         setTotalClicks(total);
         setTotalEmoji(generateEmoji(total));
       });
+
+      //fetch(`${process.env.REACT_APP_BASE_URL}app-stats`) // CHANGE TO LIVE LINK FOR DEPLOYMENT
+      fetch("http://localhost:4000/app-stats")  
+      .then(data => data.json())
+      .then(json =>{
+        setCount(json.count);
+        setDate(json.lastUpdated);
+      })
     }, [] 
   )
     
@@ -34,8 +43,9 @@ export default function App() {
       <div className='intro'>
         <h1>So how many times has my portfolio been viewed? &#129335;</h1>
         <p>Out of curiosity I set up an API <a href="https://github.com/Eightyeightdays/click-logger">here</a> to enable me to log the number of clicks that the links in my CV receive when I send it out to prospective employers.</p>   
-        <p>&#128197; Live since: 1st March 2023</p>
+        <p>&#128197; Live since: {liveDate}</p>
         {totalEmoji &&  <h2>Total clicks: {totalClicks} {String.fromCodePoint(totalEmoji)}</h2>}
+        {count && <h2>Last application sent: {date}<br/>Total applications sent since {liveDate}: {count}</h2>}
       </div>
 
       <div className='card-container'>
@@ -61,7 +71,6 @@ export default function App() {
           <input type="number" min="1" max="10" name="applications"/>
           <div className='update-button' onClick={(e)=>updateApplications(e, setCount, setDate)}>Update</div>
         </form>
-        {count && <p>{date}{count}</p>}
       </div>
       }
     </div>

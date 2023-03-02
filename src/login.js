@@ -2,6 +2,15 @@ import Cookies from "js-cookie";
 
 export default function login(setToggle, e){
     e.preventDefault();
+    
+    if(Cookies.get("token")){
+        Cookies.remove("token");
+        Cookies.remove("userId");
+        console.log("cookies removed")
+        setToggle(false)
+        return
+    }
+
     const form = document.getElementById("login");
     const user = Object.fromEntries(new FormData(form).entries());
     
