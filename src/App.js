@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import Display from './Display.js';
 import {NAMES, LINKS} from "./constants.js";
 import generateEmoji from "./generateEmoji.js";
+import login from './login.js';
+
 
 export default function App() {
   const [clicks, setClicks] = useState();
@@ -36,6 +38,16 @@ export default function App() {
         {clicks && clicks.map((el, index) =>{
           return <Display link={LINKS[index]} name={NAMES[index]} length={el.length} arr={el} key={index}/>
         })}
+      </div>
+
+      <div className='login-container'>
+        <form encType="multipart/form-data" method="post" id="login">
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email"/>
+          <label htmlFor="password">Password</label>
+          <input type="input" name="password"/>
+          <div className="login-button" onClick={login}>Login</div>
+        </form>
       </div>
     </div>
   )
