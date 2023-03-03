@@ -1,5 +1,5 @@
 export const NAMES = [
-    "Bonehead Social Media",
+    "Bonehead Social Media App",
     "YouTube Playlist Creator",
     "Strapi & Next.js",
     "Github",
@@ -14,8 +14,4 @@ export const LINKS = [
     process.env.REACT_APP_LINK_4,
     process.env.REACT_APP_LINK_5,
     process.env.REACT_APP_LINK_6
-];
-
-export const IMAGES = [
-
 ];

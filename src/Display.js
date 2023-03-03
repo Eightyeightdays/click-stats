@@ -13,12 +13,13 @@ export default function Display({link, name, length, arr, src}){
     return(
         <div className="card">
             <a className="card-link" href={link}>
-                <h2 className="card-link" >{name}</h2>
+                <h2 className="card-title" >{name}</h2>
+                <div className="image-container">
+                    <img src={src} alt=""></img>
+                </div>
             </a>
-            <div className="image">
-                <img src={src} alt=""></img>
-            </div>
-            <p>{length} {length===1? "Click": "Clicks"} {String.fromCodePoint(emoji)}</p>
+            <p className="click-count">{length} {length===1? "Click": "Clicks"} {String.fromCodePoint(emoji)}</p>
+            
             {length >=1 && 
             <div className="date-container" onClick={handleToggle}>
                 {!toggle? "Show dates" : "Hide dates"}

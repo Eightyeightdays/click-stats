@@ -2,13 +2,23 @@
   --colour1: #886ce4;
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .card-container{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   background: var(--colour1);
   padding: 2rem;
   margin: auto;
+  
+}
+
+.cards{
+  display: flex;
+  width: 100%;
 }
 
 .intro{
@@ -20,13 +30,54 @@
   align-items: center;
 }
 
+.settings-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  margin: 1rem;
+}
+
+.login-container, .input-container{
+  width: max-content;
+}
+.settings-button:hover{
+  cursor: pointer;
+}
+
 form{
   margin: auto;
   background: gainsboro;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  width: 10%;
+}
+
+svg{
+  fill: var(--colour1);
+}
+
+.total-count{
+  background: white;
+  font-size: 3rem;
+  font-weight: 900;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+label{
+  padding: 0.5rem 0;
+}
+
+.api-link{
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.login-button, .update-button{
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
 }
 
 .login-button, .update-button{
@@ -39,4 +90,10 @@ form{
   color: white;
   cursor: pointer;
   
+}
+
+@media (max-width: 700px){
+  .cards{
+    flex-direction: column;
+  }
 }

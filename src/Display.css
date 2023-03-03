@@ -1,54 +1,107 @@
 :root{
     --colour1: #886ce4;
     --colour2: #ffc83d;
+    
 }
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 
 .card{
     margin: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 0.5rem;
+    background: var(--colour2);
+    flex: 1;
+    position: relative;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
-.card-link:hover{
-    color: rgb(241, 121, 225);
+.card-title{
+    z-index: 2;
+    background: #269a0c;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    word-break: break-all;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.click-count{
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem 1rem;
+    background: black;
+    color: white;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: end;
+    margin: 1rem 0;
 }
 
 .date-container{
     background: var(--colour2);
     text-align: center;
     width: 100%;
-    position: relative;
-}
-.date-container:hover{
-    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
 }
 
 .date-container-inner{
-    background: rgb(81, 166, 216);
+    background: gainsboro;
     width: 100%;
     font-size: 0.8rem;
     font-weight: 700;
     position: absolute;
     overflow: hidden;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .date{
     padding: 0.5rem;
-}
-
-.date:hover{
-    background: gold;
-    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
     
 a, a:visited{
     color: black;
+    text-decoration: none;
 }
 
 li{
     margin: 0;
     list-style:none;
+}
+
+.image-container{
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    transition: all 0.3s ease-out;
+}
+
+.card-link:hover img{
+    filter: saturate(0);
+    transform: scale(0.8);
+}
+.card-link:hover .card-title{
+    color: var(--colour2);
+}
+.date:hover{
+    background: gold;
+    cursor: pointer;
+}
+.date-container:hover{
+    cursor: pointer;
 }
