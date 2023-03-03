@@ -25,7 +25,8 @@ export default function login(setToggle, toggle, e){
         body: JSON.stringify(user)
     }
 
-    fetch(`http://localhost:4000/login`, settings)
+    // fetch(`http://localhost:4000/login`, settings)
+    fetch(`${process.env.REACT_APP_BASE_APP}${process.env.REACT_APP_LOGIN_ENDPOINT}`, settings)
     .then(res => res.json())
     .then(data => {
         if(data.token){
