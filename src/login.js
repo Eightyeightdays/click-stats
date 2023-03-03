@@ -1,9 +1,10 @@
 import Cookies from "js-cookie";
 
-export default function login(setToggle, e){
+export default function login(setToggle, toggle, e){
     e.preventDefault();
     
-    if(Cookies.get("token")){
+    if(Cookies.get("token") && toggle){
+        console.log("User logged in was logged out")
         Cookies.remove("token");
         Cookies.remove("userId");
         console.log("cookies removed")

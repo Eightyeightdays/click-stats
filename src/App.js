@@ -19,7 +19,7 @@ export default function App() {
   const [totalClicks, setTotalClicks] = useState(0);
   const [totalEmoji, setTotalEmoji] = useState();
   const [toggle, setToggle] = useState(false);
-  const [count, setCount] = useState();
+  const [count, setCount] = useState(0);
   const [date, setDate] = useState();
   const [open, setOpen] = useState(false);
   const liveDate = "Friday March 3 2023";
@@ -49,6 +49,11 @@ export default function App() {
   function openSettings(){
     setOpen(!open);
   }
+
+  const fields = `<label htmlFor="email">Email</label>
+  <input type="email" name="email"/>
+  <label htmlFor="password">Password</label>
+  <input type="input" name="password"/>`
     
   return (
     
@@ -58,13 +63,9 @@ export default function App() {
         <p>Out of curiosity I set up an API <a className="api-link" href="https://github.com/Eightyeightdays/click-logger">here</a> to enable me to log the number of clicks that the links in my CV receive when I send it out to prospective employers.</p>   
         <p>&#128197; Live since: {liveDate}</p>
         {totalEmoji &&  <h2>Total clicks: {totalClicks} {String.fromCodePoint(totalEmoji)}</h2>}
-        {count && 
-        <>
-          <h2>Last application sent: <u>{date}</u></h2>
-          <h2>Total applications sent since <u>{liveDate}</u>:</h2>
-          <div className='total-count'>{count}</div>
-        </>
-        }
+        <h2>Last application sent: <u>{date}</u></h2>
+        <h2>Total applications sent since <u>{liveDate}</u>:</h2>
+        <div className='total-count'>{count}</div>
       </div>
 
       <div className='card-container'>
@@ -95,13 +96,11 @@ export default function App() {
         {open &&
           <div className='login-container'>
             <form encType="multipart/form-data" method="post" id="login">
-              
               <label htmlFor="email">Email</label>
               <input type="email" name="email"/>
               <label htmlFor="password">Password</label>
               <input type="input" name="password"/>
-              
-              <div className="login-button" onClick={(e)=>login(setToggle, e)}>{toggle? "Logout" : "Login"}</div>
+              <div className="login-button" onClick={(e)=>login(setToggle, toggle, e)}>{toggle? "Logout" : "Login"}</div>
             </form>
           </div>
         }
