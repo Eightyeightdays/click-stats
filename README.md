@@ -1,5 +1,5 @@
 # React SPA for viewing link click stats
-See [here] for details(https://github.com/Eightyeightdays/click-logger)
+See [here](https://github.com/Eightyeightdays/click-logger) for details.
 
 Visit the live version [here](https://click-stats.vercel.app/)
 
