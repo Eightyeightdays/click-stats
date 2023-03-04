@@ -4,6 +4,7 @@ import {NAMES, LINKS} from "./constants.js";
 import Display from './Display.js';
 import generateEmoji from "./generateEmoji.js";
 import login from './login.js';
+import Loading from "./loadingScreen.js";
 import updateApplications from './updateApplications.js';
 import image1 from "./images/BSM3.png"
 import image2 from "./images/Lister.png"
@@ -75,12 +76,14 @@ export default function App() {
           })}
         </div>
         <div className='cards'>
-        {clicks && clicks.map((el, index) =>{
+        {clicks? clicks.map((el, index) =>{
             if(index >= 3){
               return <Display link={LINKS[index]} name={NAMES[index]} length={el.length} arr={el} src={images[index]} key={index}/>
             }
             return null;
-          })}
+          }):
+          <Loading />
+        }
         </div>
       </div>
       
