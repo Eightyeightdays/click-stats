@@ -25,6 +25,7 @@ export default function App() {
   const liveDate = "Friday March 3 2023";
   
   useEffect(()=>{
+      //Click Stats
       fetch(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_ENDPOINT}`) // LIVE LINK 
       // fetch(`http://localhost:4000/${process.env.REACT_APP_ENDPOINT}`)         // local API
       .then(data => data.json())
@@ -36,6 +37,7 @@ export default function App() {
         setTotalEmoji(generateEmoji(total));
       });
 
+      //Application Stats
       fetch(`${process.env.REACT_APP_BASE_URL}app-stats`) // LIVE LINK 
       // fetch("http://localhost:4000/app-stats")         // local API
       .then(data => data.json())
@@ -50,11 +52,6 @@ export default function App() {
     setOpen(!open);
   }
 
-  const fields = `<label htmlFor="email">Email</label>
-  <input type="email" name="email"/>
-  <label htmlFor="password">Password</label>
-  <input type="input" name="password"/>`
-    
   return (
     
     <div className='app'>

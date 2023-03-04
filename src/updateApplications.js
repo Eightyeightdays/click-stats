@@ -16,8 +16,9 @@ export default function updateApplications(e, setCount, setDate){
         },
         body: JSON.stringify(data)
     }
-
-    fetch(`http://localhost:4000/update`, settings)
+    
+    // fetch(`http://localhost:4000/update`, settings)
+    fetch(`${REACT_APP_BASE_URL}update`, settings)
     .then(res => res.json())
     .then(json => {
         setCount(json.count);
