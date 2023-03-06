@@ -107,9 +107,21 @@ export default function App() {
         {open && toggle &&
           <div className='input-container'>
             <form encType="multipart/form-data" method="put" id="update">
-              <label htmlFor='applications'>Add new applications</label>
-              <input type="number" min="1" max="10" name="applications"/>
-              <div className='update-button' onClick={(e)=>updateApplications(e, setCount, setDate)}>Update</div>
+              {/* <label htmlFor='applications'>Add new applications</label> */}
+              {/* <input type="number" min="1" max="10" name="applications"/> */}
+              <label htmlFor='company'>Company Name</label>
+              <input type="text" name="company"></input>
+              <label htmlFor='title'>Job Title</label>
+              <input type="text" name="jobTitle"></input>
+              <label htmlFor='title'>Location</label>
+              <input type="text" name="location"></input>
+              <label htmlFor='title'>Link</label>
+              <input type="text" name="link"></input>
+              <label htmlFor='title'>Date Applied</label>
+              <input type="datetime-local" name="dateApplied"></input>
+              <label htmlFor='title'>Unique CV ID</label>
+              <input type="text" name="cvid"></input>
+              <div className='update-button' onClick={(e)=>updateApplications(e, setCount, setDate)}>Add Application</div>
             </form>
           </div>
         }
