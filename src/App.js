@@ -13,7 +13,6 @@ import image4 from "./images/GITHUB.png"
 import image5 from "./images/avatar.png"
 import image6 from "./images/YT.png"
 
-
 export default function App() {
   const images = [image1, image2, image3, image4, image5, image6];
   const [clicks, setClicks] = useState();
@@ -39,8 +38,8 @@ export default function App() {
       });
 
       //Application Stats
-      fetch(`${process.env.REACT_APP_BASE_URL}app-stats`) // LIVE LINK 
-      // fetch("http://localhost:4000/app-stats")         // local API
+      fetch(`${process.env.REACT_APP_BASE_URL}all-stats`) // LIVE LINK 
+      // fetch("http://localhost:4000/all-stats")         // local API
       .then(data => data.json())
       .then(json =>{
         setCount(json.count);
@@ -107,8 +106,6 @@ export default function App() {
         {open && toggle &&
           <div className='input-container'>
             <form encType="multipart/form-data" method="put" id="update">
-              {/* <label htmlFor='applications'>Add new applications</label> */}
-              {/* <input type="number" min="1" max="10" name="applications"/> */}
               <label htmlFor='company'>Company Name</label>
               <input type="text" name="company"></input>
               <label htmlFor='title'>Job Title</label>
@@ -118,7 +115,7 @@ export default function App() {
               <label htmlFor='title'>Link</label>
               <input type="text" name="link"></input>
               <label htmlFor='title'>Date Applied</label>
-              <input type="datetime-local" name="dateApplied"></input>
+              <input type="date" name="dateApplied"></input>
               <label htmlFor='title'>Unique CV ID</label>
               <input type="text" name="cvid"></input>
               <div className='update-button' onClick={(e)=>updateApplications(e, setCount, setDate)}>Add Application</div>
